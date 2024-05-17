@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Prueba_ColegiosModel2StoreContainer" CdmEntityContainer="Prueba_ColegiosEntities6">
+    <EntitySetMapping Name="Materia">
+      <EntityTypeMapping TypeName="Prueba_ColegiosModel2.Materia">
+        <MappingFragment StoreEntitySet="Materia">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_Profesor" ColumnName="Id_Profesor" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Grado" ColumnName="Grado" />
+          <ScalarProperty Name="Curso" ColumnName="Curso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profesor">
+      <EntityTypeMapping TypeName="Prueba_ColegiosModel2.Profesor">
+        <MappingFragment StoreEntitySet="Profesor">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

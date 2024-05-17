@@ -1,0 +1,66 @@
+﻿@model Prueba_Colegios.Models.Estudiante
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    h2 {
+        text-align: center;
+    }
+
+    .product-details {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .btn-group {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+        .btn-group a {
+            margin-right: 10px;
+        }
+</style>
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Datos del Estudiante</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contraseña)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contraseña)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="@Url.Action("Edit", new { id = Model.Id })" class="btn btn-success">Editar</a> |
+    <a href="@Url.Action("Delete", new { id = Model.Id })" class="btn btn-danger">Eliminar</a>
+    <br />
+    <br />
+    @Html.ActionLink("Regresar a lista de Estudiantes", "Index")
+</p>

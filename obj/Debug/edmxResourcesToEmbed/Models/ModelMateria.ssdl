@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Prueba_ColegiosModel2.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Materia">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Profesor" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Grado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Curso" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Profesor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Contraseña" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Telefono" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Materia__Id_Prof__49C3F6B7">
+    <End Role="Profesor" Type="Self.Profesor" Multiplicity="1" />
+    <End Role="Materia" Type="Self.Materia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profesor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Materia">
+        <PropertyRef Name="Id_Profesor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Prueba_ColegiosModel2StoreContainer">
+    <EntitySet Name="Materia" EntityType="Self.Materia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Profesor" EntityType="Self.Profesor" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Materia__Id_Prof__49C3F6B7" Association="Self.FK__Materia__Id_Prof__49C3F6B7">
+      <End Role="Profesor" EntitySet="Profesor" />
+      <End Role="Materia" EntitySet="Materia" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

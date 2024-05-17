@@ -1,0 +1,74 @@
+﻿@model Prueba_Colegios.Models.Materia
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    h2 {
+        text-align: center;
+    }
+
+    .product-details {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .btn-group {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+        .btn-group a {
+            margin-right: 10px;
+        }
+</style>
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Datos de la Materia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Grado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Grado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Curso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Curso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Profesor.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Profesor.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="@Url.Action("Edit", new { id = Model.Id })" class="btn btn-success">Editar</a> |
+    <a href="@Url.Action("Delete", new { id = Model.Id })" class="btn btn-danger">Eliminar</a>
+    <br />
+    <br />
+    @Html.ActionLink("Regresar a lista de Estudiantes", "Index")
+</p>

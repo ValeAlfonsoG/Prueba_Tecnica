@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Prueba_ColegiosModel3.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Estudiante">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Contraseña" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Estudiante_Materia">
+    <Key>
+      <PropertyRef Name="Id_Estudiante" />
+      <PropertyRef Name="Id_Materia" />
+    </Key>
+    <Property Name="Id_Estudiante" Type="int" Nullable="false" />
+    <Property Name="Id_Materia" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Estudiant__Id_Es__4E88ABD4">
+    <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="1" />
+    <End Role="Estudiante_Materia" Type="Self.Estudiante_Materia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estudiante">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Estudiante_Materia">
+        <PropertyRef Name="Id_Estudiante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Prueba_ColegiosModel3StoreContainer">
+    <EntitySet Name="Estudiante" EntityType="Self.Estudiante" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Estudiante_Materia" EntityType="Self.Estudiante_Materia" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Estudiant__Id_Es__4E88ABD4" Association="Self.FK__Estudiant__Id_Es__4E88ABD4">
+      <End Role="Estudiante" EntitySet="Estudiante" />
+      <End Role="Estudiante_Materia" EntitySet="Estudiante_Materia" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

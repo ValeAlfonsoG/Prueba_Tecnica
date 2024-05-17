@@ -1,0 +1,64 @@
+﻿@model Prueba_Colegios.Models.Estudiante
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+    h2, h3 {
+        text-align: center;
+    }
+
+    .product-details {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .form-actions {
+        text-align: center;
+        margin-top: 20px;
+    }
+</style>
+
+<h2>Eliminar</h2>
+
+<h3>¿Esta seguro que desea eliminar el estudiante?</h3>
+<div>
+    <h4>Datos del estudiante a eliminar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> 
+        </div>
+
+        <br />
+
+        <div class="form-actions">
+            @Html.ActionLink("Regresar a lista de Estudiantes", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Prueba_ColegiosModel3.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Estudiante">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Contraseña" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Estudiante_Materia">
+          <Key>
+            <PropertyRef Name="Id_Estudiante" />
+            <PropertyRef Name="Id_Materia" />
+          </Key>
+          <Property Name="Id_Estudiante" Type="int" Nullable="false" />
+          <Property Name="Id_Materia" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Estudiant__Id_Es__4E88ABD4">
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="1" />
+          <End Role="Estudiante_Materia" Type="Self.Estudiante_Materia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estudiante">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Estudiante_Materia">
+              <PropertyRef Name="Id_Estudiante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Prueba_ColegiosModel3StoreContainer">
+          <EntitySet Name="Estudiante" EntityType="Self.Estudiante" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estudiante_Materia" EntityType="Self.Estudiante_Materia" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Estudiant__Id_Es__4E88ABD4" Association="Self.FK__Estudiant__Id_Es__4E88ABD4">
+            <End Role="Estudiante" EntitySet="Estudiante" />
+            <End Role="Estudiante_Materia" EntitySet="Estudiante_Materia" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Prueba_ColegiosModel3" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Estudiante">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Contraseña" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Estudiante_Materia" Relationship="Self.FK__Estudiant__Id_Es__4E88ABD4" FromRole="Estudiante" ToRole="Estudiante_Materia" />
+        </EntityType>
+        <EntityType Name="Estudiante_Materia">
+          <Key>
+            <PropertyRef Name="Id_Estudiante" />
+            <PropertyRef Name="Id_Materia" />
+          </Key>
+          <Property Name="Id_Estudiante" Type="Int32" Nullable="false" />
+          <Property Name="Id_Materia" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Estudiante" Relationship="Self.FK__Estudiant__Id_Es__4E88ABD4" FromRole="Estudiante_Materia" ToRole="Estudiante" />
+        </EntityType>
+        <Association Name="FK__Estudiant__Id_Es__4E88ABD4">
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="1" />
+          <End Role="Estudiante_Materia" Type="Self.Estudiante_Materia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estudiante">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Estudiante_Materia">
+              <PropertyRef Name="Id_Estudiante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Prueba_ColegiosEntities5" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Estudiante" EntityType="Self.Estudiante" />
+          <EntitySet Name="Estudiante_Materia" EntityType="Self.Estudiante_Materia" />
+          <AssociationSet Name="FK__Estudiant__Id_Es__4E88ABD4" Association="Self.FK__Estudiant__Id_Es__4E88ABD4">
+            <End Role="Estudiante" EntitySet="Estudiante" />
+            <End Role="Estudiante_Materia" EntitySet="Estudiante_Materia" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Prueba_ColegiosModel3StoreContainer" CdmEntityContainer="Prueba_ColegiosEntities5">
+          <EntitySetMapping Name="Estudiante">
+            <EntityTypeMapping TypeName="Prueba_ColegiosModel3.Estudiante">
+              <MappingFragment StoreEntitySet="Estudiante">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estudiante_Materia">
+            <EntityTypeMapping TypeName="Prueba_ColegiosModel3.Estudiante_Materia">
+              <MappingFragment StoreEntitySet="Estudiante_Materia">
+                <ScalarProperty Name="Id_Estudiante" ColumnName="Id_Estudiante" />
+                <ScalarProperty Name="Id_Materia" ColumnName="Id_Materia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

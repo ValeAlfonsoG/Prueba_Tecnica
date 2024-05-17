@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .jumbotron {
+        padding: 30px;
+        background-color: #f8f8f8;
+        border-radius: 4px;
+        margin-bottom: 30px;
+    }
+
+        .jumbotron h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .jumbotron p.lead {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+    .img-fluid {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .row {
+        margin-bottom: 30px;
+    }
+
+    .col-md-4 {
+        margin-bottom: 30px;
+    }
+
+        .col-md-4 h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .col-md-4 p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+    .btn-default {
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 4px;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        color: #333;
+        text-decoration: none;
+    }
+
+        .btn-default:hover {
+            background-color: #e0e0e0;
+            cursor: pointer;
+        }
+</style>
+
+<main>
+    <section class="row" aria-labelledby="educationalInfoTitle">
+        <div class="col-md-8">
+            <h1 id="title">Educación de Calidad para Todos</h1>
+            <p class="lead">Nuestro colegio ofrece una educación integral, fomentando el desarrollo académico, personal y social de nuestros estudiantes.</p>
+            <p><a href="https://www.educacionbogota.edu.co/portal_institucional/" class="btn btn-primary btn-md">Conoce más &raquo;</a></p>
+        </div>
+        <div class="col-md-4 d-flex justify-content-center align-items-center">
+            <img src="~/Imagen/img.jpg" alt="Imagen representativa del colegio" class="img-fluid">
+        </div>
+    </section>
+
+    <div class="row">
+        <section class="col-md-4" aria-labelledby="academicProgramsTitle">
+            <h2 id="academicProgramsTitle">Programas Académicos</h2>
+            <p>
+                Ofrecemos una variedad de programas académicos que abordan las necesidades educativas de nuestros estudiantes, promoviendo un aprendizaje dinámico y participativo.
+            </p>
+        </section>
+        <section class="col-md-4" aria-labelledby="extracurricularActivitiesTitle">
+            <h2 id="extracurricularActivitiesTitle">Actividades Extracurriculares</h2>
+            <p>Fomentamos el desarrollo integral a través de diversas actividades extracurriculares que incluyen deportes, arte, música y más.</p>
+        </section>
+        <section class="col-md-4" aria-labelledby="admissionsTitle">
+            <h2 id="admissionsTitle">Proceso de Admisión</h2>
+            <p>Conoce nuestro proceso de admisión y cómo puedes formar parte de nuestra comunidad educativa.</p>
+        </section>
+    </div>
+</main>

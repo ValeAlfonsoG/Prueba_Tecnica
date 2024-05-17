@@ -1,0 +1,111 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #4a90e2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .container {
+        width: 400px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+
+    .image-container {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+        .image-container img {
+            max-width: 100px;
+        }
+
+    .card-header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+        .card-header h2 {
+            margin: 10px 0;
+            font-size: 24px;
+            color: #333;
+        }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+        .form-group input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+    .btn-primary {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        background-color: #007bff;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    .btn-link {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        color: #007bff;
+        text-decoration: none;
+    }
+
+        .btn-link:hover {
+            text-decoration: underline;
+        }
+</style>
+
+@using (Html.BeginForm("Index", "Login", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <div class="image-container">
+                    <img src="~/Imagen/Logo1.png" alt="Imagen de inicio de sesión" class="img-fluid">
+                </div>
+                <h2>Inicio de sesión</h2>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <input type="text" placeholder="Usuario" class="form-control" id="Usuario" name="Usuario" />
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Contraseña" class="form-control" id="Contraseña" name="Contraseña" />
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+}
+

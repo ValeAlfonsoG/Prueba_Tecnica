@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Prueba_ColegiosModel3" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Estudiante">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Contraseña" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Estudiante_Materia" Relationship="Self.FK__Estudiant__Id_Es__4E88ABD4" FromRole="Estudiante" ToRole="Estudiante_Materia" />
+  </EntityType>
+  <EntityType Name="Estudiante_Materia">
+    <Key>
+      <PropertyRef Name="Id_Estudiante" />
+      <PropertyRef Name="Id_Materia" />
+    </Key>
+    <Property Name="Id_Estudiante" Type="Int32" Nullable="false" />
+    <Property Name="Id_Materia" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Estudiante" Relationship="Self.FK__Estudiant__Id_Es__4E88ABD4" FromRole="Estudiante_Materia" ToRole="Estudiante" />
+  </EntityType>
+  <Association Name="FK__Estudiant__Id_Es__4E88ABD4">
+    <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="1" />
+    <End Role="Estudiante_Materia" Type="Self.Estudiante_Materia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estudiante">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Estudiante_Materia">
+        <PropertyRef Name="Id_Estudiante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Prueba_ColegiosEntities5" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Estudiante" EntityType="Self.Estudiante" />
+    <EntitySet Name="Estudiante_Materia" EntityType="Self.Estudiante_Materia" />
+    <AssociationSet Name="FK__Estudiant__Id_Es__4E88ABD4" Association="Self.FK__Estudiant__Id_Es__4E88ABD4">
+      <End Role="Estudiante" EntitySet="Estudiante" />
+      <End Role="Estudiante_Materia" EntitySet="Estudiante_Materia" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
